@@ -38,15 +38,6 @@ Security architect in finance/crypto. I build secure AWS architectures, automate
 | [Claude Code Automation](https://www.thehumble.dev/projects/claude-code-automation-infrastructure) | AI-powered docs generation and git workflow automation | Claude · Bash · TypeScript |
 | [AWS Resource Discovery](https://github.com/hmbldv/aws-scripts) | Shell toolkit to find unmanaged resources for Terraform imports | Bash · AWS CLI · Python |
 
-<h3 align="center">Certifications</h3>
-
-<p align="center">
-  <img src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png" width="80" alt="AWS SAA" />
-  <img src="https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" width="80" alt="AWS CCP" />
-  <img src="https://images.credly.com/images/4377e6e3-3297-4e3a-b8b8-e1ae89b8b0a8/image.png" width="80" alt="CCSK" />
-</p>
-
----
 <h3 align="center">Tech Stack</h3>
 
 <p align="center">
