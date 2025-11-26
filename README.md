@@ -3,12 +3,9 @@
 <p align="center">
   <a href="https://www.thehumble.dev">Portfolio</a> ·
   <a href="https://www.linkedin.com/in/johnnyendrihs">LinkedIn</a> ·
-  <a href="mailto:mail@squinks.cloud">Contact</a>
+  <a href="mailto:johnnyendrihs@gmail.com">Contact</a>
 </p>
 Security architect in finance/crypto. I build secure AWS architectures, automate the boring stuff, and document the journey. Currently pursuing my MS in Cloud Computing at UMGC.
-
----
-
 <h3 align="center">What I Build</h3>
 
 <div align="center">
