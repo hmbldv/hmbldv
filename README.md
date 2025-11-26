@@ -19,22 +19,11 @@ Currently pursuing my **Master's in Cloud Computing** at University of Maryland 
 
 ### What I Build
 
-<table>
-  <tr>
-    <td align="center" width="33%">
-      <img src="https://img.shields.io/badge/Security-Infrastructure-red?style=flat-square" /><br/>
-      <sub>Multi-account AWS · Compliance · IaC</sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="https://img.shields.io/badge/Modern-Web_Apps-blue?style=flat-square" /><br/>
-      <sub>Astro · TypeScript · 100/100 Lighthouse</sub>
-    </td>
-    <td align="center" width="33%">
-      <img src="https://img.shields.io/badge/AI-Automation-purple?style=flat-square" /><br/>
-      <sub>Claude Code · DevOps · Workflow Tools</sub>
-    </td>
-  </tr>
-</table>
+<p align="center">
+  <img src="https://img.shields.io/badge/Security_Infrastructure-red?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Modern_Web_Apps-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/AI_Automation-purple?style=for-the-badge" />
+</p>
 
 ---
 
