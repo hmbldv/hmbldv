@@ -1,19 +1,15 @@
 <h1 align="center">Johnny Endrihs</h1>
 <h3 align="center">Cloud Security Architect · Builder · thehumble.dev</h3>
-
 <p align="center">
   <a href="https://www.thehumble.dev">Portfolio</a> ·
   <a href="https://www.linkedin.com/in/johnnyendrihs">LinkedIn</a> ·
   <a href="mailto:mail@squinks.cloud">Contact</a>
 </p>
+Security architect in finance/crypto. I build secure AWS architectures, automate the boring stuff, and document the journey. Currently pursuing my **MS in Cloud Computing** at UMGC.
 
 ---
 
-Security architect in finance/crypto. I build secure AWS architectures, automate the boring stuff, and document the journey. Currently pursuing my **MS in Cloud Computing** at UMD.
-
----
-
-### What I Build
+<h3 align="center">What I Build</h3>
 
 <div align="center">
 <table>
@@ -33,10 +29,7 @@ Security architect in finance/crypto. I build secure AWS architectures, automate
   </tr>
 </table>
 </div>
-
----
-
-### Featured Projects
+<h3 align="center">Featured Projects</h3>
 
 | Project | Description | Stack |
 |---------|-------------|-------|
@@ -45,9 +38,7 @@ Security architect in finance/crypto. I build secure AWS architectures, automate
 | [Claude Code Automation](https://www.thehumble.dev/projects/claude-code-automation-infrastructure) | AI-powered docs generation and git workflow automation | Claude · Bash · TypeScript |
 | [AWS Resource Discovery](https://github.com/hmbldv/aws-scripts) | Shell toolkit to find unmanaged resources for Terraform imports | Bash · AWS CLI · Python |
 
----
-
-### Certifications
+<h3 align="center">Certifications</h3>
 
 <p align="center">
   <img src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png" width="80" alt="AWS SAA" />
@@ -56,8 +47,7 @@ Security architect in finance/crypto. I build secure AWS architectures, automate
 </p>
 
 ---
-
-### Tech Stack
+<h3 align="center">Tech Stack</h3>
 
 <p align="center">
   <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat-square&logo=amazon-web-services&logoColor=white" />
@@ -79,16 +69,9 @@ Security architect in finance/crypto. I build secure AWS architectures, automate
   <img src="https://img.shields.io/badge/gitlab%20CI-%23181717.svg?style=flat-square&logo=gitlab&logoColor=white" />
 </p>
 
----
-
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=hmbldv&theme=dark&hide_border=true&background=0d1117" height="150" alt="Streak" />
 </p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=hmbldv&theme=darkhub&no-frame=true&no-bg=true&margin-w=4&column=6" alt="Trophies" />
-</p>
-
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=hmbldv&color=blueviolet&style=flat-square" alt="Views" />
 </p>
