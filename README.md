@@ -30,6 +30,7 @@ Security architect in finance/crypto. I build secure AWS architectures, automate
 
 | Project | Description | Stack |
 |---------|-------------|-------|
+| [Syntor](https://github.com/hmbldv/syntor) | Multi-agent AI orchestration system with secure tool execution and enterprise observability | Go · Kafka · Redis · Ollama |
 | [AWS Security Infrastructure](https://github.com/hmbldv/aws-sec) | Multi-account security foundation with Config aggregator, security lab, credential-less CI/CD | Terraform · AWS Config · OIDC |
 | [Portfolio Website](https://www.thehumble.dev) | Fast portfolio with dark mode, versioning, auto-changelogs. 100/100 Lighthouse | Astro · TypeScript · MDX |
 | [Claude Code Automation](https://www.thehumble.dev/projects/claude-code-automation-infrastructure) | AI-powered docs generation and git workflow automation | Claude · Bash · TypeScript |
@@ -43,6 +44,7 @@ Security architect in finance/crypto. I build secure AWS architectures, automate
   <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=flat-square&logo=docker&logoColor=white" />
   <img src="https://img.shields.io/badge/linux-%23FCC624.svg?style=flat-square&logo=linux&logoColor=black" />
   <img src="https://img.shields.io/badge/python-3670A0?style=flat-square&logo=python&logoColor=ffdd54" />
+  <img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=flat-square&logo=go&logoColor=white" />
   <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E" />
   <img src="https://img.shields.io/badge/bash-%23121011.svg?style=flat-square&logo=gnu-bash&logoColor=white" />
