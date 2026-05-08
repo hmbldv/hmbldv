@@ -1,5 +1,5 @@
 <h1 align="center">Johnny Endrihs</h1>
-<h3 align="center">Building AI infrastructure from the runtime up</h3>
+<h3 align="center">Building the agentic mesh — runtime · memory · voice · tools</h3>
 
 <p align="center">
   <a href="https://www.thehumble.dev">thehumble.dev</a> ·
@@ -8,15 +8,24 @@
 
 ---
 
-18 years from USMC to director-level security. Now building the agentic layer — not as an end user, but as the person writing the runtime.
+18 years from USMC to director-level security. Now building the infrastructure that agentic AI runs on — not as an end user, but as the person writing the runtime, the memory system, and the wire protocol.
 
-My work sits at the intersection of AI systems and security architecture: designing the control surfaces, sandboxes, policy gates, and audit hooks that make autonomous agents safe to run in production. I don't bolt security on after the fact. It's a design constraint from commit one.
+My work is a self-hosted mesh of composable systems: each piece is independently useful, but together they form a fully autonomous, voice-controlled, memory-persistent agent environment running entirely on local hardware. Security is a design constraint from the first commit — sandboxes, policy gates, audit hooks, and loop detection are not features, they are architecture.
 
 ---
 
-### Flagship
+### The Mesh
 
-**[agnt](https://github.com/hmbldv/agnt)** — A production Rust agent runtime I designed and wrote from scratch. Seven crates: a zero-I/O kernel, multi-backend inference (OpenAI · Anthropic · Ollama · any OpenAI-compat), parallel tool dispatch via `thread::scope`, SQLite session persistence, and a NATS wire protocol for multi-agent routing. Security-forward by design: every filesystem tool routes through a `FilesystemRoot` sandbox that rejects path traversal at the type level; a `should_dispatch` observer gate fires before every tool call for HITL approval and policy enforcement; loop detection prevents adversarial prompts from spinning the agent in resource-exhausting cycles. Token tracking with `UsageStats` makes every inference step auditable. Running on a self-hosted 3-node Talos K8s cluster. 9/9 on a formal end-to-end eval including multi-turn coherence probes.
+The flagship is not a single repo — it's a suite of systems that compose:
+
+| Layer | What It Does |
+|-------|-------------|
+| **[agnt](https://github.com/hmbldv/agnt)** — Agent Runtime | Production Rust engine. Zero-I/O kernel, multi-backend inference (OpenAI · Anthropic · Ollama), parallel tool dispatch, NATS wire protocol, SQLite persistence. Security: `FilesystemRoot` sandbox (path traversal rejected at the type level), `should_dispatch` policy gate for HITL approval, loop detection via `(tool_name, args)` fingerprinting, per-step token audit. 7 crates. 9/9 on formal end-to-end eval. |
+| **voicectl** — Voice Layer | Always-on voice pipeline. Silero VAD, faster-whisper-large-v3 STT, Kokoro TTS — all self-hosted, no cloud. Transcripts dispatch to named agents over NATS. Treated as an adversarial input surface: sandboxed at dispatch. |
+| **memctl** — Memory System | FSRS-6 spaced-repetition memory with session search, auto-ingest, and decay scoring. Agents recall prior decisions, corrections, and context without ballooning prompt size. |
+| **vlt** — Vault Interface | Programmatic interface to the Obsidian knowledge vault. Frontmatter-aware search, recent file ranking, cross-reference resolution. The knowledge layer that agents query. |
+
+These run on a self-hosted 3-node Talos K8s cluster with HashiCorp Vault HA for secrets and NATS for messaging.
 
 ---
 
@@ -24,11 +33,10 @@ My work sits at the intersection of AI systems and security architecture: design
 
 | Project | What It Is |
 |---------|-----------|
-| **[sia](https://github.com/hmbldv/sia)** | Self-improving agent loop in Rust. Give it a target artifact, an eval script, and a metric — it runs LLM-driven hypothesis-generate-evaluate cycles with git-native checkpointing and its own security guard layer (forbidden paths, secret detection, dangerous command rejection). |
-| **[jc](https://github.com/hmbldv/jc)** | Jira + Confluence CLI built for AI consumption. JSON-first output, full markdown-to-ADF converter, dry-run-by-default mutations. Designed so an agent can read tickets, reason over them, execute changes, and update Jira — all without human hand-holding. |
-| **[claude-sec](https://github.com/hmbldv/claude-sec)** | Enterprise security framework for Claude Code deployment. Approval gates, architecture guardrails, and governance controls for teams running AI coding assistants at scale. |
-| **[syntor](https://github.com/hmbldv/syntor)** | Multi-agent orchestration system in Go. Kafka messaging, Redis registry, Jaeger tracing, Prometheus metrics. 34K lines. The earlier iteration of the orchestration work now evolved in agnt. |
-| **[aws-sec](https://github.com/hmbldv/aws-sec)** | Multi-account AWS security foundation — credential-less CI/CD via OIDC, Terraform-managed controls, GitLab pipelines. Production-grade, not a demo. |
+| **[sia](https://github.com/hmbldv/sia)** | Self-improving agent loop in Rust. Give it a target artifact, an eval script, and a metric — it runs LLM-driven hypothesis-generate-evaluate cycles with git-native checkpointing. Built-in security guards: forbidden path enforcement, secret pattern detection, dangerous command rejection. |
+| **[jc](https://github.com/hmbldv/jc)** | Jira + Confluence CLI built for AI consumption. JSON-first output, full markdown-to-ADF converter, dry-run mutations. An agent reads tickets, reasons over them, executes changes, and updates Jira — no human in the loop. |
+| **[claude-sec](https://github.com/hmbldv/claude-sec)** | Enterprise security framework for Claude Code. Approval gates, architecture guardrails, governance controls for teams running AI coding assistants at scale. |
+| **[aws-sec](https://github.com/hmbldv/aws-sec)** | Multi-account AWS security foundation — credential-less CI/CD via OIDC, Terraform-managed controls, GitLab pipelines. Production-grade. |
 
 ---
 
@@ -45,8 +53,8 @@ My work sits at the intersection of AI systems and security architecture: design
   <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white" />
   <img src="https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazonaws&logoColor=white" />
   <img src="https://img.shields.io/badge/NATS-27AAE1?style=flat-square&logo=natsdotio&logoColor=white" />
-  <img src="https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white" />
   <img src="https://img.shields.io/badge/Vault-FFEC6E?style=flat-square&logo=vault&logoColor=black" />
+  <img src="https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" />
 </p>
 
 ---
