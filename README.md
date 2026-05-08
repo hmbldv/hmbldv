@@ -1,5 +1,6 @@
 <h1 align="center">Johnny Endrihs</h1>
 <h3 align="center">Building the agentic mesh — runtime · memory · voice · tools</h3>
+<p align="center"><em>Director of Security @ Grayscale Investments &nbsp;·&nbsp; Open to AI-forward security and engineering leadership conversations.</em></p>
 
 <p align="center">
   <a href="https://www.thehumble.dev">thehumble.dev</a> ·
