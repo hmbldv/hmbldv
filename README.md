@@ -12,6 +12,8 @@
 
 My work is a self-hosted mesh of composable systems: each piece is independently useful, but together they form a fully autonomous, voice-controlled, memory-persistent agent environment running entirely on local hardware. Security is a design constraint from the first commit — sandboxes, policy gates, audit hooks, and loop detection are not features, they are architecture.
 
+I build microservices based architecture that maps cleanly to cloud environments with infrastructure that can be dictated for policy as code.
+
 ---
 
 ### The Mesh
@@ -23,7 +25,7 @@ The flagship is not a single repo — it's a suite of systems that compose:
 | **[agnt](https://github.com/hmbldv/agnt)** — Agent Runtime | Production Rust engine. Zero-I/O kernel, multi-backend inference (OpenAI · Anthropic · Ollama), parallel tool dispatch, NATS wire protocol, SQLite persistence. Security: `FilesystemRoot` sandbox (path traversal rejected at the type level), `should_dispatch` policy gate for HITL approval, loop detection via `(tool_name, args)` fingerprinting, per-step token audit. 7 crates. 9/9 on formal end-to-end eval. |
 | **voicectl** — Voice Layer | Always-on voice pipeline. Silero VAD, faster-whisper-large-v3 STT, Kokoro TTS — all self-hosted, no cloud. Transcripts dispatch to named agents over NATS. Treated as an adversarial input surface: sandboxed at dispatch. |
 | **memctl** — Memory System | FSRS-6 spaced-repetition memory with session search, auto-ingest, and decay scoring. Agents recall prior decisions, corrections, and context without ballooning prompt size. |
-| **vlt** — Vault Interface | Programmatic interface to the Obsidian knowledge vault. Frontmatter-aware search, recent file ranking, cross-reference resolution. The knowledge layer that agents query. |
+| **vlt** — Secrets Manager | Hardware-bound secrets manager. Tiered KEK hierarchy: Argon2id (passphrase) → YubiKey HMAC-SHA1 → FIDO2 hmac-secret. AES-256-GCM encryption, append-only HMAC-chained audit log, caller registration with binary hash verification. The credential layer the mesh trusts. |
 
 These run on a self-hosted 3-node Talos K8s cluster with HashiCorp Vault HA for secrets and NATS for messaging.
 
