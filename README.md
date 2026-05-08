@@ -26,6 +26,10 @@ The flagship is not a single repo — it's a suite of systems that compose:
 | **voicectl** — Voice Layer | Always-on voice pipeline. Silero VAD, faster-whisper-large-v3 STT, Kokoro TTS — all self-hosted, no cloud. Transcripts dispatch to named agents over NATS. Treated as an adversarial input surface: sandboxed at dispatch. |
 | **memctl** — Memory System | FSRS-6 spaced-repetition memory with session search, auto-ingest, and decay scoring. Agents recall prior decisions, corrections, and context without ballooning prompt size. |
 | **vlt** — Secrets Manager | Hardware-bound secrets manager. Tiered KEK hierarchy: Argon2id (passphrase) → YubiKey HMAC-SHA1 → FIDO2 hmac-secret. AES-256-GCM encryption, append-only HMAC-chained audit log, caller registration with binary hash verification. The credential layer the mesh trusts. |
+| **msh-gtwy** — Wire Protocol | Mesh gateway — IACP (Inter-Agent Communication Protocol) in Rust. Ed25519-signed trust claims, tier delegation, causal chains, replay prevention. Routes and authenticates all inter-agent traffic. |
+| **vzn** — Vision Layer | Vision service daemon. Subscribes to NATS, routes requests to a local OpenAI-compatible vision API (Qwen2-VL), publishes replies back to the mesh. Self-hosted visual perception with no cloud dependency. |
+| **repomap** — Repo Worldview | Cross-machine git worldview scanner. Dirty/ahead/behind/fetch-age per worktree, remote SSH scanning, PR/MR listing, JSON output. Agents call this to know the state of every repo before acting. |
+| **rig** — Edge CLI | Thin CLI client for cross-machine operations via `dmn` edge daemons. Routes commands through local or remote dmn instances with SSH fallback. The control surface for operating the mesh from any machine. |
 
 These run on a self-hosted 3-node Talos K8s cluster with HashiCorp Vault HA for secrets and NATS for messaging.
 
@@ -48,7 +52,6 @@ These run on a self-hosted 3-node Talos K8s cluster with HashiCorp Vault HA for 
 |---------|-----------|
 | **plyglt** | Enterprise AI Agent Control Plane — Rust kernel, Go gateway, TypeScript webapp. Multi-tenant agent governance: trust tiers, HITL policy gates, audit logging, session management. The platform layer the mesh runs on. |
 | **lumen** | Local-first document intelligence platform. 7-stage ingest pipeline (parse → chunk → embed → index → enrich → graph), GLiNER NER, Qwen3 claim extraction, hybrid BM25 + pgvecto.rs semantic search, Apache AGE property graph, MCP server for agent consumption. |
-| **msh-gtwy** | Mesh gateway — IACP (Inter-Agent Communication Protocol) in Rust. Ed25519-signed trust claims, tier delegation, causal chains, replay prevention. The wire protocol that connects agents across the mesh. |
 | **crbrs-security** | Security governance repository. CIS baselines for Kubernetes, containers, Talos, AWS, and Terraform. Policy library, finding lifecycle, Trivy/Nuclei/Semgrep/Gitleaks scan results, DefectDojo integration. |
 | **herald** | Multi-agent orchestration platform in Go. Pipeline triggers (cron + webhook), tiered Ollama inference with fallback, coordination protocol, async session bridging. |
 | **session-recall-rs** | Rust CLI + MCP server for searching Claude Code session transcripts. Surfaces prior decisions, error patterns, corrections, and compaction events — agents query it before starting work to recover context. |
