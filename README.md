@@ -31,6 +31,7 @@ The flagship is not a single repo — it's a suite of systems that compose:
 | **vzn** — Vision Layer | Vision service daemon. Subscribes to NATS, routes requests to a local OpenAI-compatible vision API (Qwen2-VL), publishes replies back to the mesh. Self-hosted visual perception with no cloud dependency. |
 | **repomap** — Repo Worldview | Cross-machine git worldview scanner. Dirty/ahead/behind/fetch-age per worktree, remote SSH scanning, PR/MR listing, JSON output. Agents call this to know the state of every repo before acting. |
 | **rig** — Edge CLI | Thin CLI client for cross-machine operations via `dmn` edge daemons. Routes commands through local or remote dmn instances with SSH fallback. The control surface for operating the mesh from any machine. |
+| **[sia](https://github.com/hmbldv/sia)** — Self-Improvement | Self-improving agent loop. Give it a target artifact, an eval script, and a metric — it runs LLM-driven hypothesis-generate-evaluate cycles with git-native checkpointing. The mesh's own optimization engine. |
 
 These run on a self-hosted 3-node Talos K8s cluster with HashiCorp Vault HA for secrets and NATS for messaging.
 
@@ -40,7 +41,6 @@ These run on a self-hosted 3-node Talos K8s cluster with HashiCorp Vault HA for 
 
 | Project | What It Is |
 |---------|-----------|
-| **[sia](https://github.com/hmbldv/sia)** | Self-improving agent loop in Rust. Give it a target artifact, an eval script, and a metric — it runs LLM-driven hypothesis-generate-evaluate cycles with git-native checkpointing. Built-in security guards: forbidden path enforcement, secret pattern detection, dangerous command rejection. |
 | **[jc](https://github.com/hmbldv/jc)** | Jira + Confluence CLI built for AI consumption. JSON-first output, full markdown-to-ADF converter, dry-run mutations. An agent reads tickets, reasons over them, executes changes, and updates Jira — no human in the loop. |
 | **[claude-sec](https://github.com/hmbldv/claude-sec)** | Enterprise security framework for Claude Code. Approval gates, architecture guardrails, governance controls for teams running AI coding assistants at scale. |
 | **[aws-sec](https://github.com/hmbldv/aws-sec)** | Multi-account AWS security foundation — credential-less CI/CD via OIDC, Terraform-managed controls, GitLab pipelines. Production-grade. |
