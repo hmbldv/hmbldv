@@ -31,7 +31,7 @@ These run on a self-hosted 3-node Talos K8s cluster with HashiCorp Vault HA for 
 
 ---
 
-### Also Building
+### Public Work
 
 | Project | What It Is |
 |---------|-----------|
@@ -39,6 +39,19 @@ These run on a self-hosted 3-node Talos K8s cluster with HashiCorp Vault HA for 
 | **[jc](https://github.com/hmbldv/jc)** | Jira + Confluence CLI built for AI consumption. JSON-first output, full markdown-to-ADF converter, dry-run mutations. An agent reads tickets, reasons over them, executes changes, and updates Jira — no human in the loop. |
 | **[claude-sec](https://github.com/hmbldv/claude-sec)** | Enterprise security framework for Claude Code. Approval gates, architecture guardrails, governance controls for teams running AI coding assistants at scale. |
 | **[aws-sec](https://github.com/hmbldv/aws-sec)** | Multi-account AWS security foundation — credential-less CI/CD via OIDC, Terraform-managed controls, GitLab pipelines. Production-grade. |
+
+---
+
+### Private Work
+
+| Project | What It Is |
+|---------|-----------|
+| **plyglt** | Enterprise AI Agent Control Plane — Rust kernel, Go gateway, TypeScript webapp. Multi-tenant agent governance: trust tiers, HITL policy gates, audit logging, session management. The platform layer the mesh runs on. |
+| **lumen** | Local-first document intelligence platform. 7-stage ingest pipeline (parse → chunk → embed → index → enrich → graph), GLiNER NER, Qwen3 claim extraction, hybrid BM25 + pgvecto.rs semantic search, Apache AGE property graph, MCP server for agent consumption. |
+| **msh-gtwy** | Mesh gateway — IACP (Inter-Agent Communication Protocol) in Rust. Ed25519-signed trust claims, tier delegation, causal chains, replay prevention. The wire protocol that connects agents across the mesh. |
+| **crbrs-security** | Security governance repository. CIS baselines for Kubernetes, containers, Talos, AWS, and Terraform. Policy library, finding lifecycle, Trivy/Nuclei/Semgrep/Gitleaks scan results, DefectDojo integration. |
+| **herald** | Multi-agent orchestration platform in Go. Pipeline triggers (cron + webhook), tiered Ollama inference with fallback, coordination protocol, async session bridging. |
+| **session-recall-rs** | Rust CLI + MCP server for searching Claude Code session transcripts. Surfaces prior decisions, error patterns, corrections, and compaction events — agents query it before starting work to recover context. |
 
 ---
 
