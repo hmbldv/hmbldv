@@ -1,81 +1,54 @@
 <h1 align="center">Johnny Endrihs</h1>
-<h3 align="center">AI Security Architect · Builder · thehumble.dev</h3>
+<h3 align="center">Building AI infrastructure from the runtime up</h3>
 
 <p align="center">
-  <a href="https://www.thehumble.dev">Portfolio</a> ·
+  <a href="https://www.thehumble.dev">thehumble.dev</a> ·
   <a href="https://www.linkedin.com/in/johnnyendrihs">LinkedIn</a>
 </p>
 
-<p align="center"><em>Building in public. Learning out loud.</em></p>
+---
+
+18 years from USMC to director-level security. Now building the agentic layer — not as an end user, but as the person writing the runtime.
+
+My work sits at the intersection of AI systems and security architecture: designing the control surfaces, sandboxes, policy gates, and audit hooks that make autonomous agents safe to run in production. I don't bolt security on after the fact. It's a design constraint from commit one.
 
 ---
 
-I build AI security tools and share the process. Currently exploring how multi-agent systems change the security landscape—and how to secure them. 18 years from USMC to director-level security, now obsessed with the AI intersection.
+### Flagship
+
+**[agnt](https://github.com/hmbldv/agnt)** — A production Rust agent runtime I designed and wrote from scratch. Seven crates: a zero-I/O kernel, multi-backend inference (OpenAI · Anthropic · Ollama · any OpenAI-compat), parallel tool dispatch via `thread::scope`, SQLite session persistence, and a NATS wire protocol for multi-agent routing. Security-forward by design: every filesystem tool routes through a `FilesystemRoot` sandbox that rejects path traversal at the type level; a `should_dispatch` observer gate fires before every tool call for HITL approval and policy enforcement; loop detection prevents adversarial prompts from spinning the agent in resource-exhausting cycles. Token tracking with `UsageStats` makes every inference step auditable. Running on a self-hosted 3-node Talos K8s cluster. 9/9 on a formal end-to-end eval including multi-turn coherence probes.
 
 ---
 
-<h3 align="center">What I Build</h3>
+### Also Building
 
-<div align="center">
-<table>
-  <tr>
-    <td align="center">
-      <img src="https://img.shields.io/badge/AI-Systems-purple?style=flat-square" /><br/>
-      <sub>Multi-agent orchestration · Automation agents</sub>
-    </td>
-    <td align="center">
-      <img src="https://img.shields.io/badge/Secure-Infrastructure-red?style=flat-square" /><br/>
-      <sub>AWS security · Zero-trust · Compliance IaC</sub>
-    </td>
-    <td align="center">
-      <img src="https://img.shields.io/badge/Open-Source-blue?style=flat-square" /><br/>
-      <sub>Tools I build and share</sub>
-    </td>
-  </tr>
-</table>
-</div>
+| Project | What It Is |
+|---------|-----------|
+| **[sia](https://github.com/hmbldv/sia)** | Self-improving agent loop in Rust. Give it a target artifact, an eval script, and a metric — it runs LLM-driven hypothesis-generate-evaluate cycles with git-native checkpointing and its own security guard layer (forbidden paths, secret detection, dangerous command rejection). |
+| **[jc](https://github.com/hmbldv/jc)** | Jira + Confluence CLI built for AI consumption. JSON-first output, full markdown-to-ADF converter, dry-run-by-default mutations. Designed so an agent can read tickets, reason over them, execute changes, and update Jira — all without human hand-holding. |
+| **[claude-sec](https://github.com/hmbldv/claude-sec)** | Enterprise security framework for Claude Code deployment. Approval gates, architecture guardrails, and governance controls for teams running AI coding assistants at scale. |
+| **[syntor](https://github.com/hmbldv/syntor)** | Multi-agent orchestration system in Go. Kafka messaging, Redis registry, Jaeger tracing, Prometheus metrics. 34K lines. The earlier iteration of the orchestration work now evolved in agnt. |
+| **[aws-sec](https://github.com/hmbldv/aws-sec)** | Multi-account AWS security foundation — credential-less CI/CD via OIDC, Terraform-managed controls, GitLab pipelines. Production-grade, not a demo. |
 
 ---
 
-<h3 align="center">Featured Projects</h3>
+### Stack
 
-| Project | What It Does | Stack |
-|---------|--------------|-------|
-| [Syntor](https://github.com/hmbldv/syntor) | Multi-agent AI orchestration with secure tool execution—34K lines of Go | Go · Kafka · Redis · Prometheus |
-| [aws-sec](https://github.com/hmbldv/aws-sec) | Multi-account AWS security foundation with credential-less CI/CD | Terraform · GitLab CI/CD · OIDC |
-| [claude-sec](https://github.com/hmbldv/claude-sec) | Enterprise security framework for Claude Code deployment | Security Architecture |
-| [Claude Code Automation](https://www.thehumble.dev/projects/claude-code-automation-infrastructure) | Slash commands for docs, git workflows, and content generation | Claude Code · TypeScript |
-| [portfolio-template](https://github.com/hmbldv/portfolio-template) | Astro portfolio with versioning and dark mode—100/100 Lighthouse | Astro · TypeScript |
-| [aws-scripts](https://github.com/hmbldv/aws-scripts) | AWS resource discovery for Terraform imports | Bash · Python · AWS CLI |
-
----
-
-<h3 align="center">Stack</h3>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=flat-square&logo=go&logoColor=white" />
-  <img src="https://img.shields.io/badge/python-3670A0?style=flat-square&logo=python&logoColor=ffdd54" />
-  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat-square&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/terraform-%235835CC.svg?style=flat-square&logo=terraform&logoColor=white" />
-  <img src="https://img.shields.io/badge/bash-%23121011.svg?style=flat-square&logo=gnu-bash&logoColor=white" />
+<p>
+  <img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white" />
+  <img src="https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white" />
+  <img src="https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
 </p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=flat-square&logo=amazon-web-services&logoColor=white" />
-  <img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=flat-square&logo=docker&logoColor=white" />
-  <img src="https://img.shields.io/badge/Claude-191919?style=flat-square&logo=anthropic&logoColor=white" />
-  <img src="https://img.shields.io/badge/kafka-%23231F20.svg?style=flat-square&logo=apache-kafka&logoColor=white" />
-  <img src="https://img.shields.io/badge/redis-%23DD0031.svg?style=flat-square&logo=redis&logoColor=white" />
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/gitlab%20CI-%23181717.svg?style=flat-square&logo=gitlab&logoColor=white" />
-  <img src="https://img.shields.io/badge/github%20actions-%232671E5.svg?style=flat-square&logo=githubactions&logoColor=white" />
-  <img src="https://img.shields.io/badge/astro-%232C2052.svg?style=flat-square&logo=astro&logoColor=white" />
+<p>
+  <img src="https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white" />
+  <img src="https://img.shields.io/badge/AWS-FF9900?style=flat-square&logo=amazonaws&logoColor=white" />
+  <img src="https://img.shields.io/badge/NATS-27AAE1?style=flat-square&logo=natsdotio&logoColor=white" />
+  <img src="https://img.shields.io/badge/Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vault-FFEC6E?style=flat-square&logo=vault&logoColor=black" />
 </p>
 
 ---
 
-<p align="center">
-  <a href="https://www.thehumble.dev">thehumble.dev</a>
-</p>
+<p align="center"><em>Security is a design constraint, not a feature.</em></p>
